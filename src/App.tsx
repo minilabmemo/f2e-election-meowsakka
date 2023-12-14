@@ -1,4 +1,5 @@
-import Header from "./components/Header";
+import Content from "./layouts/Content";
+import Header from "./layouts/Header";
 
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div className="bg bg-slate-100 font-inter">
       <div className="container m-auto ">
         <Header />
+        <Content />
       </div>
     </div>
   );

@@ -16,6 +16,9 @@ module.exports = {
       },
       dropShadow: {
         'default': '0px 4px 8px rgba(0, 0, 0, 0.25)',
+      },
+      animation: {
+        line: 'width-expand 1s ease-in-out infinite',
       }
     },
   },
