@@ -37,8 +37,9 @@ export default function Header() {
         <ul className="flex justify-between">
 
           <NavLink href={'#about'} text={'關於薩卡'} animate={true}></NavLink>
-          <NavLink href={'#news'} text={'最新活動'} animate={true}></NavLink>
+
           <NavLink href={'#policies'} text={'政策議題'} animate={true}></NavLink>
+          <NavLink href={'#news'} text={'最新活動'} animate={true}></NavLink>
           <NavLink href={'#services'} text={'民眾服務'} animate={true}></NavLink>
 
         </ul>

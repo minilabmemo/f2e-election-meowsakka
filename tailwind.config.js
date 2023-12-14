@@ -13,9 +13,15 @@ module.exports = {
         blue: {
           default: "#55A8D4",
         },
+        pink: {
+          default: "#d37272",
+        },
       },
       dropShadow: {
         'default': '0px 4px 8px rgba(0, 0, 0, 0.25)',
+      },
+      animation: {
+        'marquee': 'marquee 10s linear infinite',
       }
     },
   },
