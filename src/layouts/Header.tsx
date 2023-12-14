@@ -31,7 +31,7 @@ function NavLink({ href, text, animate }: { href: string; text: string; animate:
 
 export default function Header() {
   return (
-    <div className='flex items-center px-[60px] pt-[37px] pb-[38px]  bg-white text-blue-default text-[32px] font-semibold fill-white drop-shadow-default'>
+    <header className='fixed  top-0 left-1/2 -translate-x-1/2 z-10 w-full max-w-screen-3xl  flex items-center px-[60px] pt-[37px] pb-[38px]  bg-white text-blue-default text-[32px] font-semibold fill-white drop-shadow-default'>
       <div className="logo w-[142px]" > <img src={logo} alt="logo" /></div>
       <nav className='m-auto  w-[819px] '>
         <ul className="flex justify-between">
@@ -52,6 +52,6 @@ export default function Header() {
         <img src={LINE} alt="LINE" />
       </div>
 
-    </div>
+    </header>
   )
 }

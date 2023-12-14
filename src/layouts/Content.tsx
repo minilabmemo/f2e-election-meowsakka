@@ -12,9 +12,6 @@ export default function Content() {
           <div className="text whitespace-nowrap  text-3xl text-pink-default animate-marquee">
             立委候選人請支持貓黨 1 號＼＼喵薩卡／／立委候選人請支持貓黨 1 號＼＼喵薩卡／／立委候選人請支持貓黨 1 號＼＼喵薩卡／／
           </div>
-          <div className="text whitespace-nowrap  text-3xl text-pink-default animate-marquee">
-            立委候選人請支持貓黨 1 號＼＼喵薩卡／／立委候選人請支持貓黨 1 號＼＼喵薩卡／／立委候選人請支持貓黨 1 號＼＼喵薩卡／／
-          </div>
         </div>
 
       </section>
