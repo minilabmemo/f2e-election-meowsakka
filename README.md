@@ -8,6 +8,7 @@ A streamlined [Tailwind CSS v3.1](https://tailwindcss.com) template for [Create 
 
 ```bash
 npx create-react-app --template tailwindcss-typescript
+npx create-react-app f2e-election-meowsakka --template tailwindcss-typescript
 ```
 
 ## Credits
