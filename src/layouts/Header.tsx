@@ -15,7 +15,7 @@ function NavLink({ href, text, animate }: { href: string; text: string; animate:
       {animate ? (
         <li className="group">
           <a href={href} >{text}</a>
-          <div className=" w-0 group-hover:animate-line  bg-red-100 h-[5px] ">
+          <div className=" w-0 group-hover:w-full transition-[width] duration-1000 ease-in-out bg-red-100 h-[5px] ">
           </div>
         </li>
       ) : (
