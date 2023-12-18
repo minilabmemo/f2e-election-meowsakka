@@ -1,3 +1,19 @@
+# f2e-election-meowsakka
+
+## base template
+
+```
+npx create-react-app f2e-election-meowsakka --template tailwindcss-typescript
+```
+
+## deploy
+
+```
+npm run deploy
+```
+
+---
+
 # cra-template-tailwindcss-typescript
 
 A streamlined [Tailwind CSS v3.1](https://tailwindcss.com) template for [Create React App](https://github.com/facebook/create-react-app) in [TypeScript](https://www.typescriptlang.org/).
@@ -8,7 +24,7 @@ A streamlined [Tailwind CSS v3.1](https://tailwindcss.com) template for [Create 
 
 ```bash
 npx create-react-app --template tailwindcss-typescript
-npx create-react-app f2e-election-meowsakka --template tailwindcss-typescript
+
 ```
 
 ## Credits
