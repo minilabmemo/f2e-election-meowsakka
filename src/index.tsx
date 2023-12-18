@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client'
 import "./assets/styles/tailwind.css";
 import "./assets/styles/global.css";
-import "./assets/styles/normalize.css";
+import "./assets/styles/reset.css";
 import "./assets/styles/animation.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
