@@ -9,3 +9,22 @@ img {
   -webkit-user-drag: none;
   vertical-align: middle;
 }
+
+/* .mask{
+  background-image: url("../images/a1_photo.png") no-repeat top center;
+  background-size: cover;
+  -webkit-mask: url("../images/triangle_mask.png") no-repeat center center;
+  mask: url("../images/triangle_mask.png") no-repeat center center;
+  width: 280px;
+  height: 280px;
+} */
+
+.clipped {
+  width: 280px;
+  height: 280px;
+
+  background-size: cover;
+  -webkit-clip-path: url(#my-clip-path);
+  clip-path: url(#my-clip-path);
+
+}

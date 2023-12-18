@@ -2,9 +2,10 @@ import React from 'react'
 import banner from "../assets/images/banner.png";
 import BG from "../assets/images/BG_top.png";
 
-
-
-
+import mask from "../assets/images/mask.svg";
+import test from "../assets/images/test.svg";
+import a1_photo from "../assets/images/a1_photo.png";
+import a2_photo from "../assets/images/a2_photo.png";
 function Title({ text }: { text: string }) {
   return (
     <div className=" flex flex-col items-center w-[257px]">
@@ -15,6 +16,8 @@ function Title({ text }: { text: string }) {
 }
 
 export default function Content() {
+
+
   return (
     <div className="">
       <section id="about" >
@@ -30,12 +33,12 @@ export default function Content() {
 
       </section>
       <section id="policies" className="h-[1080px] relative px-[63px] py-[177px]">
-        <div className="absolute top-0 left-0"><img src={BG} alt="BG" /></div>
+        {/* <div className="absolute top-0 left-0"><img src={BG} alt="BG" /></div> */}
         <Title text="政策議題"></Title>
 
         <div className="flex flex-col items-center">
 
-          <h2 className="text-[32px] font-semibold text-red-250 mb-[22px]"> 我們的訴求</h2>
+          <h2 className="text-[32px] font-semibold text-red-250 m-[22px]"> 我們的訴求</h2>
 
           <div className="text-2xl font-medium text-black-default leading-[50px]">讓庫拉皮卡下船！</div>
           <div className="text-2xl font-medium text-black-default leading-[50px]">不讓貓貓過重，過重也是一種虐待！</div>
@@ -49,6 +52,21 @@ export default function Content() {
         </div>
 
       </section>
-    </div>
+
+      <section id="news" className="h-[1080px] relative px-[63px] py-[177px] flex flex-col">
+        <div className="self-end">  <Title text="最新活動"></Title></div>
+        <div className="carousel">
+
+
+          <svg className="svg">
+            <clipPath id="my-clip-path" clipPathUnits="objectBoundingBox"><path d="M0.586,1 C0.592,1,0.605,1,0.61,1 L1,0.369 C1,0.356,1,0.339,1,0.339 H0.109 C0.097,0.339,0.09,0.356,0.097,0.369 L0.586,1"></path></clipPath>
+          </svg>
+          <div style={{ backgroundImage: `url(${a1_photo})` }} className="clipped"> </div>
+          <div style={{ backgroundImage: `url(${a2_photo})` }} className="clipped "> </div>
+
+        </div>
+      </section >
+
+    </div >
   )
 }
