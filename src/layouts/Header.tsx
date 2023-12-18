@@ -30,30 +30,32 @@ function NavLink({ href, text, animate }: { href: string; text: string; animate:
 
 
 
-//TODO 縮說
+
 export default function Header() {
   return (
-    <header className='fixed  top-0 left-1/2 -translate-x-1/2 z-10 w-full max-w-screen-3xl  flex items-center px-[60px] pt-[37px] pb-[38px]  bg-white text-blue-150 text-[32px] font-semibold fill-white drop-shadow-default'>
-      <div className="logo w-[142px]" > <img src={logo} alt="logo" /></div>
-      <nav className='m-auto  w-[819px] '>
-        <ul className="flex justify-between">
+    <div className="h-[135px]">
+      <header className='fixed  top-0 left-1/2 -translate-x-1/2 z-10 w-full max-w-screen-3xl  flex items-center px-[60px] pt-[37px] pb-[38px]  bg-white text-blue-150 text-[32px] font-semibold fill-white drop-shadow-default'>
+        <div className="logo w-[142px]" > <img src={logo} alt="logo" /></div>
+        <nav className='m-auto  w-[819px] '>
+          <ul className="flex justify-between">
 
-          <NavLink href={'#about'} text={'關於薩卡'} animate={true}></NavLink>
+            <NavLink href={'#about'} text={'關於薩卡'} animate={true}></NavLink>
 
-          <NavLink href={'#policies'} text={'政策議題'} animate={true}></NavLink>
-          <NavLink href={'#news'} text={'最新活動'} animate={true}></NavLink>
-          <NavLink href={'#services'} text={'民眾服務'} animate={true}></NavLink>
+            <NavLink href={'#policies'} text={'政策議題'} animate={true}></NavLink>
+            <NavLink href={'#news'} text={'最新活動'} animate={true}></NavLink>
+            <NavLink href={'#services'} text={'民眾服務'} animate={true}></NavLink>
 
-        </ul>
-      </nav>
-      <div className="w-[280px] h-[40px] flex ">
-        <img src={Facebook} alt="Facebook" />
-        <img src={Instagram} alt="Instagram" />
-        <img src={TwitterX} alt="TwitterX" />
-        <img src={YouTube} alt="YouTube" />
-        <img src={LINE} alt="LINE" />
-      </div>
+          </ul>
+        </nav>
+        <div className="w-[280px] h-[40px] flex ">
+          <img src={Facebook} alt="Facebook" />
+          <img src={Instagram} alt="Instagram" />
+          <img src={TwitterX} alt="TwitterX" />
+          <img src={YouTube} alt="YouTube" />
+          <img src={LINE} alt="LINE" />
+        </div>
 
-    </header>
+      </header>
+    </div>
   )
 }
