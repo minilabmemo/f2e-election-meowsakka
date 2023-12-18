@@ -1,8 +1,8 @@
 import ReactDOM from 'react-dom/client'
-import "./styles/tailwind.css";
-import "./styles/global.css";
-import "./styles/normalize.css";
-import "./styles/animation.css";
+import "./assets/styles/tailwind.css";
+import "./assets/styles/global.css";
+import "./assets/styles/normalize.css";
+import "./assets/styles/animation.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import React from 'react';
