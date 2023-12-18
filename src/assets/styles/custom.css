@@ -1,0 +1,17 @@
+
+.news-photo{
+  width: 600px;
+  height: 600px;
+  background-size: cover;
+}
+
+.clipped {
+  -webkit-clip-path: url(#my-clip-path);
+  clip-path: url(#my-clip-path);
+  
+}
+
+.clipped-rotate {
+  -webkit-clip-path: url(#rotate-clip-path);
+  clip-path: url(#rotate-clip-path);
+}

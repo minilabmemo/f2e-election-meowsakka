@@ -2,10 +2,11 @@ import React from 'react'
 import banner from "../assets/images/banner.png";
 import BG from "../assets/images/BG_top.png";
 
-import mask from "../assets/images/mask.svg";
-import test from "../assets/images/test.svg";
+
 import a1_photo from "../assets/images/a1_photo.png";
 import a2_photo from "../assets/images/a2_photo.png";
+import a3_photo from "../assets/images/a3_photo.png";
+import a4_photo from "../assets/images/a4_photo.png";
 function Title({ text }: { text: string }) {
   return (
     <div className=" flex flex-col items-center w-[257px]">
@@ -17,7 +18,7 @@ function Title({ text }: { text: string }) {
 
 export default function Content() {
 
-
+  const photoSize = 200;
   return (
     <div className="">
       <section id="about" >
@@ -58,13 +59,36 @@ export default function Content() {
         <div className="carousel">
 
 
-          <svg className="svg">
-            <clipPath id="my-clip-path" clipPathUnits="objectBoundingBox"><path d="M0.586,1 C0.592,1,0.605,1,0.61,1 L1,0.369 C1,0.356,1,0.339,1,0.339 H0.109 C0.097,0.339,0.09,0.356,0.097,0.369 L0.586,1"></path></clipPath>
-          </svg>
-          <div style={{ backgroundImage: `url(${a1_photo})` }} className="clipped"> </div>
-          <div style={{ backgroundImage: `url(${a2_photo})` }} className="clipped "> </div>
 
+          <svg className="svg w-0 h-0">
+            <clipPath id="my-clip-path" clipPathUnits="objectBoundingBox">
+              <path d="M0.496,0.991 C0.502,1,0.515,1,0.521,0.991 L1,0.029 C1,0.016,1,0,0.989,0 H0.019 C0.007,0,0,0.016,0.006,0.029 L0.496,0.991"></path>
+            </clipPath>
+          </svg>
+          <svg className="svg w-0 h-0">
+            <clipPath id="rotate-clip-path" clipPathUnits="objectBoundingBox" transform="rotate(180,300,300) ">
+              <path d="M0.496,0.991 C0.502,1,0.515,1,0.521,0.991 L1,0.029 C1,0.016,1,0,0.989,0 H0.019 C0.007,0,0,0.016,0.006,0.029 L0.496,0.991"></path>
+            </clipPath>
+          </svg>
+
+          <div className="flex justify-center items-baseline overflow-hidden relative">
+
+            <div style={{ backgroundImage: `url(${a1_photo})` }} className="grow-0 shrink-0 news-photo clipped "> </div>
+            <div style={{ backgroundImage: `url(${a2_photo})` }} className="grow-0 shrink-0  news-photo clipped-rotate "> </div>
+            <div style={{ backgroundImage: `url(${a3_photo})` }} className="grow-0 shrink-0 news-photo clipped "> </div>
+            <div style={{ backgroundImage: `url(${a4_photo})` }} className="grow-0 shrink-0  news-photo clipped-rotate "> </div>
+
+            <div className="drop-shadow-[6px_6px_2px_rgba(61,61,61,0.7)] -mr-[200px]">
+              <div style={{ backgroundImage: `url(${a1_photo})` }} className="grow-0 shrink-0 news-photo clipped "> </div>
+            </div>
+            <div style={{ backgroundImage: `url(${a2_photo})` }} className="grow-0 shrink-0  news-photo clipped-rotate "> </div>
+            <div style={{ backgroundImage: `url(${a3_photo})` }} className="grow-0 shrink-0 news-photo clipped "> </div>
+            <div style={{ backgroundImage: `url(${a4_photo})` }} className="grow-0 shrink-0  news-photo clipped-rotate "> </div>
+
+
+          </div>
         </div>
+
       </section >
 
     </div >
