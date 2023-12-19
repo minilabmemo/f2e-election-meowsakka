@@ -4,6 +4,9 @@
 
 ```
 npx create-react-app f2e-election-meowsakka --template tailwindcss-typescript
+
+$ node -v
+v20.9.0
 ```
 
 ## deploy

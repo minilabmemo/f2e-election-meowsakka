@@ -29,11 +29,10 @@ export const news: newsType[] = [
     title: '台北寵物論壇',
     desc: '參與台北寵物論壇，爭取貓咪友善環境',
     src: a4_photo
-  },
-  {
-    title: '美好巷弄，一起創造。',
-    desc: '美好巷弄，一起創造。',
-    src: "https://picsum.photos/id/322/420/420"
+  }, {
+    title: '參與台北寵物論壇，爭取貓咪友善環境',
+    desc: '參與台北寵物論壇，爭取貓咪友善環境',
+    src: a1_photo
   }, {
     title: '收容所模特兒大比拼！',
     desc: '收容所模特兒大比拼！',
@@ -46,5 +45,5 @@ export const news: newsType[] = [
     title: '台北寵物論壇',
     desc: '參與台北寵物論壇，爭取貓咪友善環境',
     src: a4_photo
-  },
+  }
 ]
