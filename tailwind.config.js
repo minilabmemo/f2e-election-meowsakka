@@ -13,11 +13,12 @@ module.exports = {
         black: {
           default: "#141414",
         },
+        gray: {
+          150: "#D9D9D9",
+        },
         blue: {
           150: "#55A8D4",
-
           250: "#307CAE",
-
         },
         pink: {
           default: "#d37272",
@@ -25,8 +26,8 @@ module.exports = {
         red: {
           250: "#FF6666",
         },
-        gray: {
-          150: "#D9D9D9",
+        yellow: {
+          150: "#FAF2D3",
         },
 
 

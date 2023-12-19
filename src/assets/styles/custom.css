@@ -1,17 +1,12 @@
 
-.news-photo{
-  width: 600px;
-  height: 600px;
-  background-size: cover;
-}
 
 .clipped {
-  -webkit-clip-path: url(#my-clip-path);
-  clip-path: url(#my-clip-path);
+  -webkit-clip-path: url(#triangle-path);
+  clip-path: url(#triangle-path);
   
 }
 
-.clipped-rotate {
-  -webkit-clip-path: url(#rotate-clip-path);
-  clip-path: url(#rotate-clip-path);
+.clipped-reverse {
+  -webkit-clip-path: url(#triangle-path-reverse);
+  clip-path: url(#triangle-path-reverse);
 }

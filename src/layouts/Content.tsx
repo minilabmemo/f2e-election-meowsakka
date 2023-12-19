@@ -1,12 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import banner from "../assets/images/banner.png";
 import BG from "../assets/images/BG_top.png";
 
 
-import a1_photo from "../assets/images/a1_photo.png";
-import a2_photo from "../assets/images/a2_photo.png";
-import a3_photo from "../assets/images/a3_photo.png";
-import a4_photo from "../assets/images/a4_photo.png";
+import title_bg from "../assets/images/title_bg.svg";
+
+import { news, newsType } from '../utils/news';
 function Title({ text }: { text: string }) {
   return (
     <div className=" flex flex-col items-center w-[257px]">
@@ -17,10 +16,13 @@ function Title({ text }: { text: string }) {
 }
 
 export default function Content() {
+  const [title, setTitle] = useState(news[0].title)
+  const handleClick = (item: newsType, index: number) => {
 
-  const photoSize = 200;
+    setTitle(item.title)
+  };
   return (
-    <div className="">
+    <div className="overflow-hidden">
       <section id="about" >
         <div><img src={banner} alt="banner" /></div>
         <div className="border-y-4 border-pink-default bg-white flex flex-nowrap overflow-hidden py-3	font-bold">
@@ -48,47 +50,46 @@ export default function Content() {
           <div className="text-2xl font-medium text-black-default leading-[50px]">推廣寵物飼養教育，讓愛更加專業。</div>
           <button className="bg-blue-150 rounded-[30px] py-[5px] px-[21px] mt-[37px]">
             <span className="text-2xl leading-[40px] font-semibold text-white">   詳細政策</span>
-
           </button>
         </div>
 
       </section>
 
-      <section id="news" className="h-[1080px] relative px-[63px] py-[177px] flex flex-col">
+      <section id="news" className="h-[1080px] relative  flex flex-col w-full">
         <div className="self-end">  <Title text="最新活動"></Title></div>
-        <div className="carousel">
-
-
-
+        <div className="carousel rotate-[15deg] skew-[15deg]">
           <svg className="svg w-0 h-0">
-            <clipPath id="my-clip-path" clipPathUnits="objectBoundingBox">
+            <clipPath id="triangle-path" clipPathUnits="objectBoundingBox">
               <path d="M0.496,0.991 C0.502,1,0.515,1,0.521,0.991 L1,0.029 C1,0.016,1,0,0.989,0 H0.019 C0.007,0,0,0.016,0.006,0.029 L0.496,0.991"></path>
             </clipPath>
           </svg>
           <svg className="svg w-0 h-0">
-            <clipPath id="rotate-clip-path" clipPathUnits="objectBoundingBox" transform="rotate(180,300,300) ">
+            <clipPath id="triangle-path-reverse" clipPathUnits="objectBoundingBox" transform="rotate(180,210,210) ">
               <path d="M0.496,0.991 C0.502,1,0.515,1,0.521,0.991 L1,0.029 C1,0.016,1,0,0.989,0 H0.019 C0.007,0,0,0.016,0.006,0.029 L0.496,0.991"></path>
             </clipPath>
           </svg>
 
-          <div className="flex justify-center items-baseline overflow-hidden relative">
-
-            <div style={{ backgroundImage: `url(${a1_photo})` }} className="grow-0 shrink-0 news-photo clipped "> </div>
-            <div style={{ backgroundImage: `url(${a2_photo})` }} className="grow-0 shrink-0  news-photo clipped-rotate "> </div>
-            <div style={{ backgroundImage: `url(${a3_photo})` }} className="grow-0 shrink-0 news-photo clipped "> </div>
-            <div style={{ backgroundImage: `url(${a4_photo})` }} className="grow-0 shrink-0  news-photo clipped-rotate "> </div>
-
-            <div className="drop-shadow-[6px_6px_2px_rgba(61,61,61,0.7)] -mr-[200px]">
-              <div style={{ backgroundImage: `url(${a1_photo})` }} className="grow-0 shrink-0 news-photo clipped "> </div>
-            </div>
-            <div style={{ backgroundImage: `url(${a2_photo})` }} className="grow-0 shrink-0  news-photo clipped-rotate "> </div>
-            <div style={{ backgroundImage: `url(${a3_photo})` }} className="grow-0 shrink-0 news-photo clipped "> </div>
-            <div style={{ backgroundImage: `url(${a4_photo})` }} className="grow-0 shrink-0  news-photo clipped-rotate "> </div>
-
-
+          <div className="flex justify-center items-center overflow-hidden p-10 bg-yellow-150 w-screen">
+            {news.map((value, key) => (
+              <div key={key} className="drop-shadow-[6px_6px_2px_rgba(61,61,61,0.7)] -mr-[150px] hover:scale-[1.1] " onMouseMove={() => handleClick(value, key)}>
+                <div style={{ backgroundImage: `url(${value.src})` }} className={`grow-0 shrink-0 w-[420px] h-[420px] bg-cover bg-center ${key % 2 === 0 ? "clipped" : "clipped-reverse"} `}> </div>
+              </div>
+            ))}
           </div>
-        </div>
 
+        </div>
+        <div className="title font-semibold text-blue-150 relative ">
+
+          <div className=" text-[32px] absolute p-10 z-10 flex flex-col justify-center items-start  w-[800px] h-[200px]">
+            {title}
+            <button className="bg-blue-150 rounded-[30px] py-[5px] px-[21px] mt-[37px] self-end">
+              <span className="text-2xl leading-[40px] font-semibold text-white "> 暸解更多</span>
+            </button>
+          </div>
+
+          <div className="w-[1000px] absolute top-0 left-0">  <img src={title_bg} alt="title_bg" /></div>
+
+        </div>
       </section >
 
     </div >
