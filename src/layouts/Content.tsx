@@ -3,7 +3,9 @@ import banner from "../assets/images/banner.png";
 import BG from "../assets/images/BG_top.png";
 import title_bg from "../assets/images/title_bg.svg";
 import { news, newsType } from '../utils/news';
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 function Title({ text }: { text: string }) {
   return (
     <div className=" flex flex-col items-center w-[300px]">
@@ -14,85 +16,60 @@ function Title({ text }: { text: string }) {
 }
 
 export default function Content() {
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 1000,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    cssEase: "linear",
+    slidesToScroll: 2,
+    variableWidth: true,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+          variableWidth: false,
+        }
+      }, {
+        breakpoint: 700,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+          initialSlide: 2,
+          variableWidth: false,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+          variableWidth: false,
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          variableWidth: false,
+        }
+      }
+    ]
+  };
   const [title, setTitle] = useState(news[0].title)
   const handleClick = (item: newsType, index: number) => {
 
     setTitle(item.title)
   };
 
-  const [focusIndex, setFocusIndex] = useState(0)
 
-  const viewportRef = useRef<HTMLDivElement | null>(null);
-  const objectRef = useRef<HTMLDivElement | null>(null);
-
-
-  useEffect(() => {
-    const timeoutId = setInterval(() => {
-      console.log("Delayed for 1 second.");
-      if (focusIndex === news.length - 1) {
-        //do nothing
-        setFocusIndex(0);
-      }
-      else {
-        setFocusIndex((prev) => prev + 1);
-      }
-    }, 2000);
-
-
-    return () => clearTimeout(timeoutId);
-  }, [focusIndex]);
-
-  useEffect(() => {
-    const viewport = viewportRef.current;
-    const object = objectRef.current;
-
-    if (viewport && object) {
-      const SCREEN_WIDTH = object.offsetWidth;
-      // function transitionend(event: any) {
-      //   console.log("🚀 ~ file: Content.tsx:51 ~ transitionend ~ transitionend:")
-      //   if (viewport) {
-      //     viewport.style.transitionProperty = 'none';
-      //     viewport.style.transition = "transform 0s";
-
-      //     viewport.removeEventListener('transitionend', transitionend, false);
-      //   }
-
-      // }
-      // viewport.addEventListener('transitionend', transitionend, false);
-      const distance = (- focusIndex) * SCREEN_WIDTH;
-
-      viewport.style.transform = ` translate3d(${distance}px, 0, 0)`;
-      viewport.style.transitionDuration = `1s`;
-
-
-
-    }
-
-  }, [focusIndex]);
-
-
-  const handleBack = () => {
-
-    console.log(focusIndex)
-    if (focusIndex === 0) {
-      //do nothing
-      setFocusIndex(news.length - 1);
-    } else {
-      setFocusIndex((prev) => prev - 1);
-
-    }
-  };
-
-  const handleNext = () => {
-    console.log(focusIndex)
-    if (focusIndex === news.length - 1) {
-      //do nothing
-      setFocusIndex(0);
-    }
-    else {
-      setFocusIndex((prev) => prev + 1);
-    }
-  };
   return (
     <div className="overflow-hidden" style={{ backgroundImage: `url(${BG})` }}>
       <section id="about" >
@@ -129,13 +106,7 @@ export default function Content() {
 
       <section id="news" className="h-[1080px] relative  flex flex-col  w-full justify-center"  >
         <div className="self-end">  <Title text="最新活動"></Title></div>
-        {/* <button className="control_btn" onClick={() => handleBack()}>
-          back
-        </button>
-        <button className="control_btn" onClick={() => handleNext()}>
-          next
-        </button> */}
-        <div className="carousel-bg rotate-[15deg]  p-10  bg-yellow-150  overflow-hidden translate-y-[100px] -translate-x-[90px] w-[110vw] 3xl:-translate-x-[100px] 3xl:w-screen">
+        <div className="carousel-bg rotate-[15deg]     overflow-hidden translate-y-[100px]  self-center w-[120vw]">
 
           <svg className="svg w-0 h-0">
             <clipPath id="triangle-path" clipPathUnits="objectBoundingBox">
@@ -147,27 +118,17 @@ export default function Content() {
               <path d="M0.496,0.991 C0.502,1,0.515,1,0.521,0.991 L1,0.029 C1,0.016,1,0,0.989,0 H0.019 C0.007,0,0,0.016,0.006,0.029 L0.496,0.991"></path>
             </clipPath>
           </svg>
-
-          <div className="carousel flex justify-start items-start  ease-in 		" ref={viewportRef}>
-
+          <Slider {...settings} className="carousel flex justify-start items-start  h-[500px]	">
             {news.map((value, index) => (
-              <div key={index} ref={focusIndex === index ? objectRef : null} className="drop-shadow-[6px_6px_2px_rgba(61,61,61,0.7)] -mr-[150px] hover:scale-[1.1] " onMouseMove={() => handleClick(value, index)}>
-                <div style={{ backgroundImage: `url(${value.src})` }} className={`grow-0 shrink-0 w-[420px] h-[400px] bg-cover bg-center ${index % 2 === 0 ? "clipped" : "clipped-reverse"} `}> </div>
-              </div>
-            ))}
-            {news.map((value, index) => (
-              <div key={index} ref={focusIndex === index ? objectRef : null} className="drop-shadow-[6px_6px_2px_rgba(61,61,61,0.7)] -mr-[150px] hover:scale-[1.1] " onMouseMove={() => handleClick(value, index)}>
-                <div style={{ backgroundImage: `url(${value.src})` }} className={`grow-0 shrink-0 w-[420px] h-[400px] bg-cover bg-center ${index % 2 === 0 ? "clipped" : "clipped-reverse"} `}> </div>
+              <div style={{ width: 280 }} key={index} className="drop-shadow-[6px_6px_2px_rgba(61,61,61,0.7)] my-10  hover:scale-[1.1] " onMouseMove={() => handleClick(value, index)}>
+                <div style={{ backgroundImage: `url(${value.src})` }}
+                  className={`grow-0 shrink-0 w-[420px] h-[400px] bg-cover bg-center ${index % 2 === 0 ? "clipped" : "clipped-reverse"} `}> </div>
               </div>
             ))}
 
-            {news.map((value, index) => (
-              <div key={index} ref={focusIndex === index ? objectRef : null} className="drop-shadow-[6px_6px_2px_rgba(61,61,61,0.7)] -mr-[150px] hover:scale-[1.1] " onMouseMove={() => handleClick(value, index)}>
-                <div style={{ backgroundImage: `url(${value.src})` }} className={`grow-0 shrink-0 w-[420px] h-[400px] bg-cover bg-center ${index % 2 === 0 ? "clipped" : "clipped-reverse"} `}> </div>
-              </div>
-            ))}
+          </Slider>
 
-          </div>
+
         </div>
         <div className="title font-semibold text-blue-150 relative translate-y-[150px]">
 
