@@ -137,9 +137,9 @@ export default function Content() {
 
 
         </div>
-        <div className="title font-semibold text-blue-150 relative ">
+        <div className="title font-semibold text-blue-150 relative -translate-x-4">
 
-          <div className=" text-[32px] absolute p-10 z-10 flex flex-col justify-center items-start  w-[800px] h-[200px]">
+          <div className=" text-[32px] absolute p-10 z-[1] flex flex-col justify-center items-start  w-[800px] h-[200px]">
             {title}
             <button className="bg-blue-150 rounded-[30px] py-[5px] px-[21px] mt-[37px] self-end">
               <span className="text-2xl leading-[40px] font-semibold text-white "> 暸解更多</span>
@@ -158,11 +158,11 @@ export default function Content() {
 
           <div className="w-[1328px] h-[493px] absolute top-0 left-0">  <img src={plane_path} alt="plane_path" className="" /></div>
           <div className={`w-[226px] h-[111px] absolute plane ${isAnimatedFly ? "fly" : ""} top-0 left-0`}>  <img src={plane} alt="plane" /></div>
-
-          <h2 className="text-[32px] font-semibold text-red-250 m-[22px]"> 您的聲音，我們的行動！</h2>
-          <div className="text-2xl font-medium text-black-default leading-[50px]">親愛的鄉親，每一位市民的意見都是我們社區前進的原動力。無論大小事，我都誠摯希望聽到您的建議。</div>
-          <div className="text-2xl font-medium text-black-default leading-[50px]">分享您的想法，一同為我們的未來打造更美好！！</div>
-
+          <div className="absolute top-[50%]  flex flex-col   justify-center items-center">
+            <h2 className="text-[32px] font-semibold text-red-250 m-[22px]"> 您的聲音，我們的行動！</h2>
+            <div className="text-2xl font-medium text-black-default leading-[50px]">親愛的鄉親，每一位市民的意見都是我們社區前進的原動力。無論大小事，我都誠摯希望聽到您的建議。</div>
+            <div className="text-2xl font-medium text-black-default leading-[50px]">分享您的想法，一同為我們的未來打造更美好！！</div>
+          </div>
         </div>
 
       </section>

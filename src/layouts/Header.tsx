@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef, useState, RefObject } from 'react'
 import logo from "../assets/images/logo.svg";
 import Facebook from "../assets/images/Facebook.svg";
 import Instagram from "../assets/images/Instagram.svg";
@@ -32,9 +32,35 @@ function NavLink({ href, text, animate }: { href: string; text: string; animate:
 
 
 export default function Header() {
+
+  const hRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY || document.documentElement.scrollTop;
+      if (scrollY > 100) {
+        if (hRef.current) {
+          hRef.current.style.transition = ".5s";
+          hRef.current.style.height = "100px";
+
+        }
+      } else {
+        if (hRef.current) {
+          hRef.current.style.transition = "0s";
+          hRef.current.style.height = "135px";
+
+        }
+
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="h-[135px]">
-      <header className='fixed  top-0 left-1/2 -translate-x-1/2 z-10 w-full max-w-screen-3xl  flex items-center px-[60px] pt-[37px] pb-[38px]  bg-white text-blue-150 text-[32px] font-semibold fill-white drop-shadow-default'>
+    <div className="flex  h-[135px]">
+      <header ref={hRef} className="transition-[height] fixed  top-0 left-1/2 -translate-x-1/2 z-10 w-full max-w-screen-3xl  flex items-center px-[60px] pt-[37px] pb-[38px]  bg-white text-blue-150 text-[32px] font-semibold fill-white drop-shadow-default">
         <div className="logo w-[142px]" > <img src={logo} alt="logo" /></div>
         <nav className='m-auto  w-[819px] '>
           <ul className="flex justify-between">
