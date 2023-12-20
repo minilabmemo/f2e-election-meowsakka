@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import banner from "../assets/images/banner.png";
 import BG from "../assets/images/BG_top.png";
 import title_bg from "../assets/images/title_bg.svg";
+import plane from "../assets/images/plane.png";
+import plane_path from "../assets/images/plane_path.svg";
 import { news, newsType } from '../utils/news';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -104,9 +106,9 @@ export default function Content() {
 
       </section>
 
-      <section id="news" className="h-[1080px] relative  flex flex-col  w-full justify-center"  >
-        <div className="self-end">  <Title text="最新活動"></Title></div>
-        <div className="carousel-bg rotate-[15deg]     overflow-hidden translate-y-[100px]  self-center w-[120vw]">
+      <section id="news" className="h-[1080px] relative  flex flex-col  w-full justify-center "  >
+        <div className="self-end ">  <Title text="最新活動"></Title></div>
+        <div className="carousel-bg rotate-[15deg]     overflow-hidden   self-center w-[120vw]">
 
           <svg className="svg w-0 h-0">
             <clipPath id="triangle-path" clipPathUnits="objectBoundingBox">
@@ -130,7 +132,7 @@ export default function Content() {
 
 
         </div>
-        <div className="title font-semibold text-blue-150 relative translate-y-[150px]">
+        <div className="title font-semibold text-blue-150 relative ">
 
           <div className=" text-[32px] absolute p-10 z-10 flex flex-col justify-center items-start  w-[800px] h-[200px]">
             {title}
@@ -144,16 +146,23 @@ export default function Content() {
         </div>
 
       </section >
-      <section id="news" className="h-[1080px] relative  flex flex-col   justify-center px-[63px] py-[177px]">
+      <section id="news" className="h-[1080px]   flex flex-col   justify-center px-[63px] py-[177px] ">
         <Title text="民眾服務信箱"></Title>
 
-        <div className="flex flex-col items-center py-[177px]">
+        <div className="flex flex-col items-center py-[177px] relative">
+
+          <div className="w-[1328px] h-[493px] absolute top-0 left-0">  <img src={plane_path} alt="plane_path" className="" /></div>
+          <div className="w-[226px] h-[111px] absolute plane fly top-0 left-0" >  <img src={plane} alt="plane" /></div>
 
           <h2 className="text-[32px] font-semibold text-red-250 m-[22px]"> 您的聲音，我們的行動！</h2>
           <div className="text-2xl font-medium text-black-default leading-[50px]">親愛的鄉親，每一位市民的意見都是我們社區前進的原動力。無論大小事，我都誠摯希望聽到您的建議。</div>
           <div className="text-2xl font-medium text-black-default leading-[50px]">分享您的想法，一同為我們的未來打造更美好！！</div>
 
         </div>
+
+      </section>
+
+      <section>
 
       </section>
     </div >

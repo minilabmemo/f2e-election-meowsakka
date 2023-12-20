@@ -9,4 +9,22 @@
   }
 }
 
+/*usage class="plane fly"*/
+.plane {
+  offset-path: path(
+    "M1326 489C1154 413 936 533 750 473C592 422.032 587.403 312.587 452 175C328 49.0005 138 -8.99933 -18 5.00036"
+  );
+  offset-rotate: 0deg;
+}
+.fly {
+  animation: plane-fly 5s infinite ease-in-out;
+}
 
+@keyframes plane-fly {
+  0% {
+    offset-distance: 100%;
+}
+100% {
+    offset-distance: 0%;
+}
+}
