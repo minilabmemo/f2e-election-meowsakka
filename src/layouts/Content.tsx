@@ -7,6 +7,7 @@ import plane_path from "../assets/images/plane_path.svg";
 import { news, newsType } from '../utils/news';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useInView } from 'react-intersection-observer';
 import Slider from "react-slick";
 function Title({ text }: { text: string }) {
   return (
@@ -18,6 +19,11 @@ function Title({ text }: { text: string }) {
 }
 
 export default function Content() {
+  const [refService, inViewService] = useInView({ triggerOnce: false, });
+  const [isAnimatedFly, setIsAnimatedFly] = useState(false);
+  useEffect(() => {
+    setIsAnimatedFly(inViewService)
+  }, [inViewService]);
   var settings = {
     dots: true,
     infinite: true,
@@ -67,7 +73,6 @@ export default function Content() {
   };
   const [title, setTitle] = useState(news[0].title)
   const handleClick = (item: newsType, index: number) => {
-
     setTitle(item.title)
   };
 
@@ -146,13 +151,13 @@ export default function Content() {
         </div>
 
       </section >
-      <section id="news" className="h-[1080px]   flex flex-col   justify-center px-[63px] py-[177px] ">
+      <section id="service" className="h-[1080px]   flex flex-col   justify-center px-[63px] py-[177px] " ref={refService} >
         <Title text="民眾服務信箱"></Title>
 
         <div className="flex flex-col items-center py-[177px] relative">
 
           <div className="w-[1328px] h-[493px] absolute top-0 left-0">  <img src={plane_path} alt="plane_path" className="" /></div>
-          <div className="w-[226px] h-[111px] absolute plane fly top-0 left-0" >  <img src={plane} alt="plane" /></div>
+          <div className={`w-[226px] h-[111px] absolute plane ${isAnimatedFly ? "fly" : ""} top-0 left-0`}>  <img src={plane} alt="plane" /></div>
 
           <h2 className="text-[32px] font-semibold text-red-250 m-[22px]"> 您的聲音，我們的行動！</h2>
           <div className="text-2xl font-medium text-black-default leading-[50px]">親愛的鄉親，每一位市民的意見都是我們社區前進的原動力。無論大小事，我都誠摯希望聽到您的建議。</div>

@@ -17,7 +17,7 @@
   offset-rotate: 0deg;
 }
 .fly {
-  animation: plane-fly 5s infinite ease-in-out;
+  animation: plane-fly 5s 1 ease-in-out;
 }
 
 @keyframes plane-fly {
