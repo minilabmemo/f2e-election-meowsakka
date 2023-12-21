@@ -1,4 +1,5 @@
 import Content from "./layouts/Content";
+import Footer from "./layouts/Footer";
 import Header from "./layouts/Header";
 
 
@@ -8,6 +9,7 @@ function App() {
       <div className="3xl:container m-auto ">
         <Header />
         <Content />
+        <Footer />
       </div>
     </div>
   );
