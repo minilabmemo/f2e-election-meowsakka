@@ -1,34 +1,14 @@
-import React, { useEffect, useRef, useState, RefObject } from 'react'
+import React, { useEffect, useRef, useState, } from 'react'
 import logo from "../assets/images/logo.svg";
 import Facebook from "../assets/images/Facebook.svg";
 import Instagram from "../assets/images/Instagram.svg";
 import TwitterX from "../assets/images/TwitterX.svg";
 import YouTube from "../assets/images/YouTube.svg";
 import LINE from "../assets/images/LINE.svg";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import NavLink from '../components/NavLink';
 
 
 
-
-function NavLink({ href, text, animate }: { href: string; text: string; animate: boolean }) {
-  return (
-    <>
-      {animate ? (
-        <li className="group mx-5">
-          <a href={href} >{text}</a>
-          <div className=" w-0 group-hover:w-full transition-[width] duration-1000 ease-in-out bg-red-100 h-[5px] ">
-          </div>
-        </li>
-      ) : (
-        <li className="mx-5">
-          <a href={href} >{text}</a>
-        </li>
-
-      )}
-    </>
-  );
-}
 
 
 
@@ -60,7 +40,6 @@ export default function Header() {
     };
   }, []);
 
-  const [isMeanOpen, setIsMeanOpen] = useState(false)
 
   return (
     <div className="flex items-center  h-[135px]">
@@ -75,7 +54,7 @@ export default function Header() {
             <NavLink href={'#services'} text={'民眾服務'} animate={true}></NavLink>
           </ul>
         </nav>
-        <div className="w-[250px] h-[30px] flex items-center xl:h-[40px]">
+        <div className="w-[250px] h-[30px]  items-center xl:h-[40px] hidden md:flex">
           <img src={Facebook} alt="Facebook" />
           <img src={Instagram} alt="Instagram" />
           <img src={TwitterX} alt="TwitterX" />
@@ -83,16 +62,11 @@ export default function Header() {
           <img src={LINE} alt="LINE" />
         </div>
 
-        <div className={`
-    before:bg-red-400 before:w-[100%] before:h-[5px] before:absolute before:top-0  before:transition-all before:duration-1000
-     after:bg-red-400 after:w-[100%]  after:h-[5px] after:absolute after:bottom-0  after:transition-all after:duration-1000
-     h-[50px] w-[50px] bg-slate-300 relative  
-     ${isMeanOpen ? "before:top-1/2 before:-translate-y-1/2 before:rotate-[135deg] after:bottom-1/2 after:translate-y-1/2 after:rotate-[45deg]" : ""}`}>
-          <div className={` h-[5px] bg-red-400 w-[100%] absolute top-1/2 -translate-y-1/2  transition-opacity  ${isMeanOpen ? "opacity-0" : "opacity-100"}`}></div>
-        </div>
 
 
       </header>
+
+
     </div>
   )
 }
