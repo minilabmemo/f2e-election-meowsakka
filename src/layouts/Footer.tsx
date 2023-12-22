@@ -7,12 +7,12 @@ export default function Footer() {
         <div className="w-[313px] h-[156px]"><img src={logo} alt="logo" /></div>
         <div className="text-black-150 text-2xl flex my-2">
           <div>
-            <div className="m-1  ">104 專區</div>
-            <div className="m-1  ">人才招募</div>
+            <div className="m-3  ">104 專區</div>
+            <div className="m-3  ">人才招募</div>
           </div>
           <div>
-            <div className="m-1  ">友善連結</div>
-            <div className="m-1  ">小額捐款</div>
+            <div className="m-3  ">友善連結</div>
+            <div className="m-3  ">小額捐款</div>
           </div>
 
           <div></div>

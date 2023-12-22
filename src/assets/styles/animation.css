@@ -1,3 +1,5 @@
+
+/*marquee*/
 @keyframes marquee {
   0% {
 
@@ -30,5 +32,18 @@
 }
 
 
+.width-animate {
+  animation: width 2s 1 ease-in-out;
+}
 
 
+@keyframes width {
+  0% {
+
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
