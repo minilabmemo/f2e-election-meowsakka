@@ -47,3 +47,19 @@
     width: 100%;
   }
 }
+
+.bottom-animate {
+  animation: bottom 1.5s 1 ease-in-out forwards;
+}
+
+
+@keyframes bottom {
+  0% {
+
+    bottom: -100vh;
+  }
+
+  100% {
+    bottom: 0;
+  }
+}

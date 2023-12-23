@@ -16,10 +16,14 @@ module.exports = {
         },
         gray: {
           150: "#D9D9D9",
+          350: "#404040"
         },
         blue: {
           150: "#55A8D4",
           250: "#307CAE",
+        },
+        cyan: {
+          150: "#44C3C3",
         },
         pink: {
           default: "#d37272",
@@ -29,6 +33,7 @@ module.exports = {
         },
         yellow: {
           150: "#FAF2D3",
+          250: "#E0CC13",
         },
         orange: {
           150: "#FFEADD",
