@@ -61,7 +61,7 @@ export default function NewsModal({ setNewsModal }: { setNewsModal: Dispatch<Set
       <div className="relative scroll-bar-no-show  overflow-y-scroll h-full p-5" id="newsModal" >
 
         {news.map(((item, index) => (
-          <section key={index} className={`activity flex ${index % 2 === 0 ? "" : "flex-row-reverse"}  opacity-0    `}
+          <section key={index} className={`activity flex ${index % 2 === 0 ? "" : "flex-row-reverse"}  opacity-0  relative  z-10`}
 
             id={`${index === 0 ? "firstSection" : ""}`}>
             <div className="flex-1 flex flex-col ">
@@ -70,10 +70,10 @@ export default function NewsModal({ setNewsModal }: { setNewsModal: Dispatch<Set
                 <div className={`w-full flex relative ${index % 2 === 0 ? "" : " justify-end"}`}>
                   <div className="w-2/3"><img src={`${item.src} `} alt="a1_photo" /></div>
                   {index % 2 === 0 ?
-                    (<div className="w-1/3  bg-red-250 h-[3px] top-1/2 left-2/3 absolute ">
-                      <div className="bg-red-250 w-[20px]  h-[20px]  rounded-[50%] absolute right-0 translate-x-1/2 -translate-y-1/2"></div></div>
+                    (<div className="w-1/3  bg-red-150 h-[3px] top-1/2 left-2/3 absolute ">
+                      <div className="bg-red-250 w-[20px]  h-[20px]  rounded-[50%] absolute  right-0 translate-x-1/2 -translate-y-1/2"></div></div>
                     ) :
-                    (<div className="w-1/3  bg-red-250 h-[3px] top-1/2 left-0 absolute ">
+                    (<div className="w-1/3  bg-red-150 h-[3px] top-1/2 left-0 absolute ">
                       <div className="bg-red-250 w-[20px]  h-[20px]  rounded-[50%] absolute left-0 -translate-x-1/2 -translate-y-1/2"></div></div>
 
                     )
@@ -94,7 +94,7 @@ export default function NewsModal({ setNewsModal }: { setNewsModal: Dispatch<Set
 
 
 
-        <div className=" absolute bg-red-250 w-[3px] left-1/2 -translate-x-1/2 top-[50px] -bottom-[300px]"
+        <div className=" absolute bg-red-150 w-[3px] left-1/2 -translate-x-1/2 top-[50px] -bottom-[300px] z-0"
           ref={lineRef}>
           <div className="bg-red-250 w-[20px]  h-[20px]  rounded-[50%] absolute right-0 top-0 translate-x-1/2 "></div>
           <div className="bg-red-250 w-[20px]  h-[20px]  rounded-[50%] absolute right-0 bottom-0 translate-x-1/2 "></div>
