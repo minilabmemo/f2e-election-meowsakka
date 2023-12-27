@@ -16,6 +16,7 @@ import a1_photo from "../assets/images/a1_photo.png";
 import a2_photo from "../assets/images/a2_photo.png";
 import a3_photo from "../assets/images/a3_photo.png";
 import a4_photo from "../assets/images/a4_photo.png";
+import NewsModal from './NewsModal';
 function Title({ text }: { text: string }) {
   return (
     <div className=" flex flex-col items-center w-[300px]">
@@ -84,42 +85,7 @@ export default function Content() {
   };
   const [aboutModal, setAboutModal] = useState(false)
   const [newsModal, setNewsModal] = useState(false)
-  useEffect(() => {
-    const targetElement = document.getElementById('newsModal');
-    const sectionElement = document.getElementById('sectionContent');
-    const handleScroll = () => {
-      if (targetElement && sectionElement) {
-        const scrollTop = targetElement.scrollTop;
-        const h = sectionElement.clientHeight
-        const num = Math.ceil((scrollTop / h / 2) + 1); //在上一個高度一半時顯示下一個，並無條件進位
 
-        const thirdChild: HTMLDivElement | null = document.querySelector(`.activity:nth-child(${num + 1})`);
-        console.log("🚀 ~ file: Content.tsx:103 ~ handleScroll ~ thirdChild:", thirdChild)
-        if (num % 2 === 0) {
-          thirdChild?.classList.add('left-move-animate');
-        } else {
-          thirdChild?.classList.add('left-move-animate');
-        }
-        if (num < 2) {
-          const thirdChild: HTMLDivElement | null = document.querySelector(`.activity:nth-child(${num + 1})`);
-          thirdChild?.classList.remove('left-move-animate');
-        }
-
-
-      }
-    };
-
-    if (targetElement) {
-      targetElement.addEventListener('scroll', handleScroll);
-    }
-
-
-    return () => {
-      if (targetElement) {
-        targetElement.removeEventListener('scroll', handleScroll);
-      }
-    };
-  }, [newsModal]);
 
   return (
     <div className="overflow-hidden" style={{ backgroundImage: `url(${BG})` }}>
@@ -266,80 +232,7 @@ export default function Content() {
       )}
 
       {newsModal && (
-        <Modal SetModal={setNewsModal}>
-          <div className="relative scroll-bar-no-show  overflow-y-scroll h-full p-5" id="newsModal" >
-
-            {news.map(((item, index) => (
-              <section className={`activity flex ${index % 2 === 0 ? "" : "flex-row-reverse"}`} id={`${index === 0 ? "sectionContent" : ""}`}>
-                <div className="flex-1 flex flex-col ">
-                  <div className={`w-full flex flex-col ${index % 2 === 0 ? "" : "items-end"}`}>
-                    <h2 className="w-2/3 text-blue-150 text-[32px] tracking-[10%] font-semibold">{item.title}</h2>
-                    <div className={`w-full flex relative ${index % 2 === 0 ? "" : " justify-end"}`}>
-                      <div className="w-2/3"><img src={`${item.src} `} alt="a1_photo" /></div>
-                      {index % 2 === 0 ?
-                        (<div className="w-1/3  bg-red-250 h-[5px] top-1/2 left-2/3 absolute "> <div className="bg-red-250 w-[20px]  h-[20px] rounded-1/2 rounded-[50%] absolute right-0 translate-x-1/2 -translate-y-1/4"></div></div>
-                        ) :
-                        (<div className="w-1/3  bg-red-250 h-[5px] top-1/2 left-0 absolute "> <div className="bg-red-250 w-[20px]  h-[20px] rounded-1/2 rounded-[50%] absolute left-0 -translate-x-1/2 -translate-y-1/4"></div></div>
-
-                        )
-                      }
-                    </div>
-
-                    <div className="w-2/3">
-                      <div className="d">{item.date}</div>
-                      <div className="d"> {item.desc}</div>
-                    </div>
-                  </div>
-
-                </div>
-                <div className="flex-1 ">
-                </div>
-              </section>
-            )))}
-
-
-            <section className="activity flex " id="sectionContent">
-              <div className="flex-1 flex flex-col ">
-                <div className="w-full">
-                  <h2 className="w-2/3 text-blue-150 text-[32px] tracking-[10%] font-semibold">參與台北寵物論壇，爭取貓咪友善環境</h2>
-                  <div className="w-full flex relative">
-                    <div className="w-2/3"><img src={a1_photo} alt="a1_photo" /></div>
-                    <div className="w-1/3  bg-red-250 h-[5px] top-1/2 left-2/3 absolute "> <div className="bg-red-250 w-[20px]  h-[20px] rounded-1/2 rounded-[50%] absolute right-0 translate-x-1/2 -translate-y-1/4"></div></div>
-                  </div>
-                  <div className="d">12/25</div>
-                  <div className="w-2/3">炎炎夏日的周六，我走進了台北寵物論壇，帶著一副貓耳髮箍，決定要全力宣傳「貓咪至上」的理念！我相信，我們的都市中，每一隻貓咪都應該有自己的 VIP 休憩空間。</div>
-                </div>
-
-              </div>
-              <div className="flex-1 ">
-              </div>
-            </section>
-            <section className="activity flex   flex-row-reverse">
-              <div className="flex-1 flex flex-row">
-                <div className="w-full flex relative  justify-end">
-                  <div className="w-2/3 "><img src={a1_photo} alt="a1_photo" /></div>
-                  <div className="w-1/3  bg-red-250 h-[5px] top-1/2 left-0 absolute "> <div className="bg-red-250 w-[20px]  h-[20px] rounded-1/2 rounded-[50%] absolute left-0 -translate-x-1/2 -translate-y-1/4"></div></div>
-                </div>
-              </div>
-              <div className="flex-1   ">
-              </div>
-            </section>
-            <section className="activity flex  gap-5 flex-row-reverse">
-              <div className="flex-1 flex flex-col items-end">
-                <div className="w-2/3">
-                  <h2 className="text-blue-150 text-[32px] tracking-[10%] font-semibold">參與台北寵物論壇，爭取貓咪友善環境</h2>
-                  <div className=""><img src={a1_photo} alt="a1_photo" /></div>
-                </div>
-
-              </div>
-              <div className="flex-1   ">
-              </div>
-            </section>
-            <div className="line absolute bg-red-250 w-[2px] left-1/2 -translate-x-1/2 top-[50px] -bottom-[300px]"></div>
-
-          </div>
-
-        </Modal>
+        <NewsModal setNewsModal={setNewsModal} />
       )}
 
     </div >
