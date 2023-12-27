@@ -30,7 +30,7 @@ export default function Content() {
     setIsAnimatedFly(inViewService)
   }, [inViewService]);
   var settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 1000,
     autoplay: true,
@@ -83,12 +83,11 @@ export default function Content() {
   const [aboutModal, setAboutModal] = useState(false)
   const [newsModal, setNewsModal] = useState(false)
 
-  useEffect(() => {
-
-    news.forEach((item) => {
-      new Image().src = `${item.src}`
-    });
-  }, [])
+  // useEffect(() => {
+  //   news.forEach((item) => {
+  //     new Image().src = `${item.src}`
+  //   });
+  // }, [])
 
   return (
     <div className="overflow-hidden" style={{ backgroundImage: `url(${BG})` }}>
@@ -136,15 +135,14 @@ export default function Content() {
             </clipPath>
           </svg>
           <svg className="svg w-0 h-0">
-            <clipPath id="triangle-path-reverse" clipPathUnits="objectBoundingBox" transform="rotate(180,210,200) ">
-              <path d="M0.496,0.991 C0.502,1,0.515,1,0.521,0.991 L1,0.029 C1,0.016,1,0,0.989,0 H0.019 C0.007,0,0,0.016,0.006,0.029 L0.496,0.991"></path>
-            </clipPath>
+
+            <clipPath id="triangle-path-reverse" clipPathUnits="objectBoundingBox"><path d="M0.006,0.977 C0,0.989,0.007,1,0.019,1 L0.989,1 C1,1,1,0.988,1,0.977 L0.512,0.012 C0.507,0,0.492,0,0.486,0.012 L0.006,0.977"></path></clipPath>
           </svg>
           <Slider {...settings} className="carousel flex justify-start items-start  h-[500px]	">
             {news.map((value, index) => (
               <div style={{ width: 280 }} key={index} className="drop-shadow-[6px_6px_2px_rgba(61,61,61,0.7)] my-10  hover:scale-[1.1] " onMouseMove={() => handleClick(value, index)}>
                 <div style={{ backgroundImage: `url(${value.src})` }}
-                  className={`grow-0 shrink-0 w-[420px] h-[400px] bg-cover  ${index % 2 === 0 ? "clipped" : "clipped-reverse"} `}> </div>
+                  className={`grow-0 shrink-0 w-[420px] h-[400px] bg-cover bg-center ${index % 2 === 0 ? "clipped" : "clipped-reverse"} `}> </div>
               </div>
             ))}
 
