@@ -34,11 +34,11 @@ export default function NewsModal({ setNewsModal }: { setNewsModal: Dispatch<Set
           const hiddenChild: HTMLDivElement | null = document.querySelector(`.activity:nth-child(${index})`);
 
           if (index % 2 === 0) {
-            hiddenChild?.classList.remove('right-move-in-animate');
-            hiddenChild?.classList.add('right-move-out-animate');
+            hiddenChild?.classList.replace('right-move-in-animate', 'right-move-out-animate');
+
           } else {
-            hiddenChild?.classList.remove('left-move-in-animate');
-            hiddenChild?.classList.add('left-move-out-animate');
+            hiddenChild?.classList.replace('left-move-in-animate', "left-move-out-animate");
+
           }
         }
 
