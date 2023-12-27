@@ -12,10 +12,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { useInView } from 'react-intersection-observer';
 import Slider from "react-slick";
 import Modal from '../components/Modal';
-import a1_photo from "../assets/images/a1_photo.png";
-import a2_photo from "../assets/images/a2_photo.png";
-import a3_photo from "../assets/images/a3_photo.png";
-import a4_photo from "../assets/images/a4_photo.png";
+
 import NewsModal from './NewsModal';
 function Title({ text }: { text: string }) {
   return (
@@ -86,6 +83,12 @@ export default function Content() {
   const [aboutModal, setAboutModal] = useState(false)
   const [newsModal, setNewsModal] = useState(false)
 
+  useEffect(() => {
+
+    news.forEach((item) => {
+      new Image().src = `${item.src}`
+    });
+  }, [])
 
   return (
     <div className="overflow-hidden" style={{ backgroundImage: `url(${BG})` }}>
@@ -141,9 +144,10 @@ export default function Content() {
             {news.map((value, index) => (
               <div style={{ width: 280 }} key={index} className="drop-shadow-[6px_6px_2px_rgba(61,61,61,0.7)] my-10  hover:scale-[1.1] " onMouseMove={() => handleClick(value, index)}>
                 <div style={{ backgroundImage: `url(${value.src})` }}
-                  className={`grow-0 shrink-0 w-[420px] h-[400px] bg-cover bg-center ${index % 2 === 0 ? "clipped" : "clipped-reverse"} `}> </div>
+                  className={`grow-0 shrink-0 w-[420px] h-[400px] bg-cover  ${index % 2 === 0 ? "clipped" : "clipped-reverse"} `}> </div>
               </div>
             ))}
+
 
           </Slider>
 

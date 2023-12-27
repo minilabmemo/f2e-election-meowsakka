@@ -4,6 +4,8 @@ import a1_photo from "../assets/images/a1_photo.png";
 import a2_photo from "../assets/images/a2_photo.png";
 import a3_photo from "../assets/images/a3_photo.png";
 import a4_photo from "../assets/images/a4_photo.png";
+import a5_photo from "../assets/images/a5_photo.png";
+import a6_photo from "../assets/images/a6_photo.png";
 
 export type newsType = {
   title: string,
@@ -38,21 +40,21 @@ export const news: newsType[] = [
     title: '寵物友善咖啡市集',
     desc: '讓「咖啡」與「寵物」蹦出最新鮮的市集組合，歡迎帶著你心愛的寵物們來到這邊，除了可以一同享受咖啡香所帶來的色香味俱全饗宴，也可以與各個寵物與主人們互相交流。',
     date: "12/27",
-    src: a1_photo
+    src: a5_photo
   }, {
     title: '與薩卡同行，浪貓關懷',
     desc: '在看不見的角落裡，有那麼一群人為了浪浪，願意耗費自己的金錢、心力，甚至投入大量的時間，都是為了讓浪浪有個美好的家，薩卡舉辦的全台中途贈糧活動正式開跑，並努力保護流浪貓、改善飼養環境，協助毛孩們有飯吃，有機會成就一個愛他的家！',
     date: "12/28",
-    src: a3_photo
+    src: a6_photo
   }, {
     title: '彈跳甲魚湯之長泳訓練營 ',
     desc: '泳渡薩卡島是很多人的人生清單！是台灣一年一度的盛事，為了迎接泳渡薩卡島的盛事，薩卡舉辦訓練營方便夥伴一同來督促彼此的體力和意志力，讓我們一起來和薩卡游泳吧！畢竟有好的體力，才能當好鏟屎官！',
     date: "12/29",
-    src: a2_photo
+    src: "https://picsum.photos/id/179/300/300"
   }, {
-    title: '台北寵物論壇',
-    desc: '參與台北寵物論壇，爭取貓咪友善環境',
-    date: "12/25",
-    src: a4_photo
+    title: '森林步道，與你前行',
+    desc: '走在美好的街道，漫步前行，森林步道安全提升與改善計畫，未來的路，與你前行。',
+    date: "12/31",
+    src: "https://picsum.photos/id/17/300/300"
   }
 ]

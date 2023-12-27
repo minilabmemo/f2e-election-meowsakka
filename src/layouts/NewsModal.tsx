@@ -30,18 +30,14 @@ export default function NewsModal({ setNewsModal }: { setNewsModal: Dispatch<Set
           nextChild?.classList.add('left-move-in-animate');
         }
 
-        for (let index = num + 1; index < news.length; index++) {
+        for (let index = num + 1; index <= news.length; index++) {
           const hiddenChild: HTMLDivElement | null = document.querySelector(`.activity:nth-child(${index})`);
-
           if (index % 2 === 0) {
-            hiddenChild?.classList.replace('right-move-in-animate', 'right-move-out-animate');
-
+            hiddenChild?.classList.replace('right-move-in-animate', 'right-move-out-animate'); //有出現過的才有移除動畫
           } else {
             hiddenChild?.classList.replace('left-move-in-animate', "left-move-out-animate");
-
           }
         }
-
         lineRef.current.style.bottom = "-" + scrollTop + "px"
       }
     };
