@@ -1,13 +1,17 @@
 {
   "files": {
-    "main.css": "/f2e-election-meowsakka/static/css/main.1f89aeb7.css",
-    "main.js": "/f2e-election-meowsakka/static/js/main.b73bc2ab.js",
+    "main.css": "/f2e-election-meowsakka/static/css/main.b57acf4f.css",
+    "main.js": "/f2e-election-meowsakka/static/js/main.34740892.js",
+    "static/media/a6_photo.png": "/f2e-election-meowsakka/static/media/a6_photo.7582c4c945d70c86347b.png",
     "static/media/a2_photo.png": "/f2e-election-meowsakka/static/media/a2_photo.12d1871ec5042ec62aba.png",
+    "static/media/a5_photo.png": "/f2e-election-meowsakka/static/media/a5_photo.d4bb181efa98f6008827.png",
     "static/media/a1_photo.png": "/f2e-election-meowsakka/static/media/a1_photo.6255398fc2a057cdfa1b.png",
     "static/media/a3_photo.png": "/f2e-election-meowsakka/static/media/a3_photo.a0eb185798a5c67a868f.png",
     "static/media/a4_photo.png": "/f2e-election-meowsakka/static/media/a4_photo.b276e2a9a4e8ac59ba78.png",
     "static/media/BG_top.png": "/f2e-election-meowsakka/static/media/BG_top.fcb9a988c0efd7ddc99d.png",
-    "static/media/banner.png": "/f2e-election-meowsakka/static/media/banner.b25b61f77b05495ef836.png",
+    "static/media/about_sakka.png": "/f2e-election-meowsakka/static/media/about_sakka.58b6cad66339aa818862.png",
+    "static/media/banner_click.png": "/f2e-election-meowsakka/static/media/banner_click.e087abaedde7ad309b9a.png",
+    "static/media/sakka_detail.png": "/f2e-election-meowsakka/static/media/sakka_detail.06ae7f7beb23c2364ae1.png",
     "static/media/logo.svg": "/f2e-election-meowsakka/static/media/logo.e79ec3e2dcf89b07399db98703c843ae.svg",
     "static/media/TwitterX.svg": "/f2e-election-meowsakka/static/media/TwitterX.f9654338c062da259c253ac5cafe46fd.svg",
     "static/media/slick.svg": "/f2e-election-meowsakka/static/media/slick.2630a3e3eab21c607e21.svg",
@@ -21,11 +25,12 @@
     "index.html": "/f2e-election-meowsakka/index.html",
     "static/media/plane_path.svg": "/f2e-election-meowsakka/static/media/plane_path.99b37d22c8156a98eac805515bd842c8.svg",
     "static/media/title_bg.svg": "/f2e-election-meowsakka/static/media/title_bg.6fef780d72f29490457e189be559cec2.svg",
-    "main.1f89aeb7.css.map": "/f2e-election-meowsakka/static/css/main.1f89aeb7.css.map",
-    "main.b73bc2ab.js.map": "/f2e-election-meowsakka/static/js/main.b73bc2ab.js.map"
+    "static/media/X.svg": "/f2e-election-meowsakka/static/media/X.903cf918d8d527beba830649b219e79f.svg",
+    "main.b57acf4f.css.map": "/f2e-election-meowsakka/static/css/main.b57acf4f.css.map",
+    "main.34740892.js.map": "/f2e-election-meowsakka/static/js/main.34740892.js.map"
   },
   "entrypoints": [
-    "static/css/main.1f89aeb7.css",
-    "static/js/main.b73bc2ab.js"
+    "static/css/main.b57acf4f.css",
+    "static/js/main.34740892.js"
   ]
 }
