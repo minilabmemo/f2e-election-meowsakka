@@ -63,3 +63,34 @@
     bottom: 0;
   }
 }
+
+.left-move-animate {
+  animation: left-move 1.5s 1 ease-in-out forwards;
+}
+
+
+@keyframes left-move {
+  0% {
+
+    transform: translateX(100vw);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+.right-move-animate {
+  animation: right-move 1.5s 1 ease-in-out forwards;
+}
+
+
+@keyframes right-move {
+  0% {
+
+    transform: translateX(-100vw);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}

@@ -10,3 +10,16 @@
   -webkit-clip-path: url(#triangle-path-reverse);
   clip-path: url(#triangle-path-reverse);
 }
+
+:root {
+  --primary: #484848;
+  --secondary: #307CAE;
+}
+.scroll-bar-no-show::-webkit-scrollbar {
+  width: 15px;
+}
+
+.scroll-bar-no-show::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 14px;
+}

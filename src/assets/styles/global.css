@@ -6,15 +6,3 @@ img {
   -webkit-user-drag: none;
   vertical-align: middle;
 }
-:root {
-  --primary: #484848;
-  --secondary: #307CAE;
-}
-.content::-webkit-scrollbar {
-  width: 15px;
-}
-
-.content::-webkit-scrollbar-thumb {
-  background-color: transparent;
-  border-radius: 14px;
-}

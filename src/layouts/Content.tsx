@@ -12,11 +12,15 @@ import "slick-carousel/slick/slick-theme.css";
 import { useInView } from 'react-intersection-observer';
 import Slider from "react-slick";
 import Modal from '../components/Modal';
+import a1_photo from "../assets/images/a1_photo.png";
+import a2_photo from "../assets/images/a2_photo.png";
+import a3_photo from "../assets/images/a3_photo.png";
+import a4_photo from "../assets/images/a4_photo.png";
 function Title({ text }: { text: string }) {
   return (
     <div className=" flex flex-col items-center w-[300px]">
       <h1 className="text-5xl font-noto font-semibold text-blue-250 h-[70px]">{text}</h1>
-      <div className="line h-[16px] w-[97px] bg-gray-150 mt-3"></div>
+      <div className="line h-[16px] w-[97px] bg-gray-150 mt-2"></div>
     </div>
   )
 }
@@ -79,7 +83,43 @@ export default function Content() {
     setTitle(item.title)
   };
   const [aboutModal, setAboutModal] = useState(false)
+  const [newsModal, setNewsModal] = useState(false)
+  useEffect(() => {
+    const targetElement = document.getElementById('newsModal');
+    const sectionElement = document.getElementById('sectionContent');
+    const handleScroll = () => {
+      if (targetElement && sectionElement) {
+        const scrollTop = targetElement.scrollTop;
+        const h = sectionElement.clientHeight
+        const num = Math.ceil((scrollTop / h / 2) + 1); //在上一個高度一半時顯示下一個，並無條件進位
 
+        const thirdChild: HTMLDivElement | null = document.querySelector(`.activity:nth-child(${num + 1})`);
+        console.log("🚀 ~ file: Content.tsx:103 ~ handleScroll ~ thirdChild:", thirdChild)
+        if (num % 2 === 0) {
+          thirdChild?.classList.add('left-move-animate');
+        } else {
+          thirdChild?.classList.add('left-move-animate');
+        }
+        if (num < 2) {
+          const thirdChild: HTMLDivElement | null = document.querySelector(`.activity:nth-child(${num + 1})`);
+          thirdChild?.classList.remove('left-move-animate');
+        }
+
+
+      }
+    };
+
+    if (targetElement) {
+      targetElement.addEventListener('scroll', handleScroll);
+    }
+
+
+    return () => {
+      if (targetElement) {
+        targetElement.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, [newsModal]);
 
   return (
     <div className="overflow-hidden" style={{ backgroundImage: `url(${BG})` }}>
@@ -148,7 +188,7 @@ export default function Content() {
           <div className=" text-[32px] absolute p-10 z-[1] flex flex-col justify-center items-start  w-[800px] h-[200px]">
             {title}
             <button className="bg-blue-150 rounded-[30px] py-[5px] px-[21px] mt-[37px] self-end">
-              <span className="text-2xl leading-[40px] font-semibold text-white "> 暸解更多</span>
+              <span className="text-2xl leading-[40px] font-semibold text-white " onClick={() => { setNewsModal(!newsModal) }}> 暸解更多</span>
             </button>
           </div>
 
@@ -176,50 +216,129 @@ export default function Content() {
 
       {aboutModal && (
         <Modal SetModal={setAboutModal}>
-          <div className="flex flex-col items-center">
-            <h1 className="text-[48px] font-semibold text-blue-250">薩卡的主張</h1>
-            <div className="w-[90%] text-[20px] text-black-default leading-[225%] tracking-[6px] my-[32px]">
+          <div className=" scroll-bar-no-show overflow-y-auto h-full">
+            <div className="flex flex-col items-center">
+              <h1 className="text-[48px] font-semibold text-blue-250">薩卡的主張</h1>
+              <div className="w-[90%] text-[20px] text-black-default leading-[225%] tracking-[6px] my-[32px]">
 
-              我堅信，藉由推動更完善的<span className="text-red-250">貓咪</span>福利和相關政策，更是間接地投資於台灣的未來。畢竟，民眾的身心健康與工作熱情是推動經濟的核心動力。透過完善的<span className="text-red-250">貓咪</span>福利政策，為台灣的 GDP 經濟帶來巨大效益。
-              因此，我期望能在立法院內推進這些政策，確保每一隻<span className="text-red-250">貓咪</span>都能得到他們應有的照顧，同時也為台灣的經濟發展助一臂之力。讓我們一同護航台灣的幸福經濟，從照顧每一隻<span className="text-red-250">貓咪</span>開始。
-            </div>
-          </div>
-
-          <div className="flex justify-around">
-            <div className="h"><img src={about_sakka} alt="about_sakka" /></div>
-            <div className="h">
-              <h1 className="text-[48px] font-semibold text-blue-250">關於薩卡</h1>
-              <div className="my-[46px] text-[24px] leading-[208%] tracking-[3.6px]">
-                <h3 className="text-red-250">經歷</h3>
-                <div className="h">曾擔任「喵星宇宙」顧問</div>
-                <div className="h">現任「喵喵大好」榮譽理事長</div>
-                <div className="h">國立喵喵大學特聘講師及榮譽校友</div>
-              </div>
-              <div className="my-[46px] text-[24px] leading-[208%] tracking-[3.6px]">
-                <h3 className="text-red-250">學歷</h3>
-                <div className="h">英國哈喵大學 / 喵行為學系博士畢業</div>
-                <div className="h">國立喵喵大學 / 喵行為學系碩士畢業</div>
-                <div className="h">國立喵喵大學 / 喵喵心理系學士畢業</div>
+                我堅信，藉由推動更完善的<span className="text-red-250">貓咪</span>福利和相關政策，更是間接地投資於台灣的未來。畢竟，民眾的身心健康與工作熱情是推動經濟的核心動力。透過完善的<span className="text-red-250">貓咪</span>福利政策，為台灣的 GDP 經濟帶來巨大效益。
+                因此，我期望能在立法院內推進這些政策，確保每一隻<span className="text-red-250">貓咪</span>都能得到他們應有的照顧，同時也為台灣的經濟發展助一臂之力。讓我們一同護航台灣的幸福經濟，從照顧每一隻<span className="text-red-250">貓咪</span>開始。
               </div>
             </div>
-          </div>
-          <div className="relative w-[10px]  font-noto text-gray-350 text-[85px] opacity-10 font-bold">
-            <div className="absolute -top-[50px] -translate-x-[200px] z-10">
-              <div className="scale-x-[-1] whitespace-nowrap ">薩卡班甲魚</div>
-              <div className="scale-x-[-1] ">Sacabambaspis</div>
-              <div className="scale-x-[-1] whitespace-nowrap">サカバンバスピス</div>
+
+            <div className="flex justify-around flex-wrap">
+              <div className="h"><img src={about_sakka} alt="about_sakka" /></div>
+              <div className="h">
+                <h1 className="text-[48px] font-semibold text-blue-250">關於薩卡</h1>
+                <div className="my-[46px] text-[24px] leading-[208%] tracking-[3.6px]">
+                  <h3 className="text-red-250">經歷</h3>
+                  <div className="h">曾擔任「喵星宇宙」顧問</div>
+                  <div className="h">現任「喵喵大好」榮譽理事長</div>
+                  <div className="h">國立喵喵大學特聘講師及榮譽校友</div>
+                </div>
+                <div className="my-[46px] text-[24px] leading-[208%] tracking-[3.6px]">
+                  <h3 className="text-red-250">學歷</h3>
+                  <div className="h">英國哈喵大學 / 喵行為學系博士畢業</div>
+                  <div className="h">國立喵喵大學 / 喵行為學系碩士畢業</div>
+                  <div className="h">國立喵喵大學 / 喵喵心理系學士畢業</div>
+                </div>
+              </div>
             </div>
+            <div className="relative w-[10px]  font-noto text-gray-350 text-[85px] opacity-10 font-bold">
+              <div className="absolute -top-[50px] -translate-x-[200px] z-10">
+                <div className="scale-x-[-1] whitespace-nowrap ">薩卡班甲魚</div>
+                <div className="scale-x-[-1] ">Sacabambaspis</div>
+                <div className="scale-x-[-1] whitespace-nowrap">サカバンバスピス</div>
+              </div>
+            </div>
+
+            <div className="flex justify-around flex-wrap my-[32px]">
+              <div className="flex-1 text-[20px] text-black-default leading-[225%] tracking-[6px]">
+                <h1 className="text-[48px] font-semibold text-blue-250">薩卡的起源</h1>
+                <div className="my-[32px]">薩卡出生於澳洲附近的海域，隨著洋流去過很多地方，某天在躲避掠食者的攻擊時，努力的一躍跳上了岸，發現自己竟然可以在空氣中自由呼吸，於是薩卡開始了地面上的旅行。
+                  風和日麗的某個夏天，薩卡走進了貓咪咖啡廳，馬上就被許多<span className="text-cyan-150">＼＼＼</span><span className="text-yellow-250">世界上最可愛的生物們</span><span className="text-cyan-150">／／／</span>包圍了，基於散播歡樂散播愛的理念，薩卡決定要將<span className="text-cyan-150">＼＼＼</span><span className="text-yellow-250">貓貓的可愛</span><span className="text-cyan-150">／／／</span>發揚光大。
+                  「就從改善這個太平洋小島的貓貓權益開始吧！」於是薩卡戴上了貓耳，決心參選下一屆立委！</div>
+              </div>
+              <div className="flex-1"><img src={sakka_detail} alt="sakka_detail" /></div>
+            </div>
+          </div>
+        </Modal>
+      )}
+
+      {newsModal && (
+        <Modal SetModal={setNewsModal}>
+          <div className="relative scroll-bar-no-show  overflow-y-scroll h-full p-5" id="newsModal" >
+
+            {news.map(((item, index) => (
+              <section className={`activity flex ${index % 2 === 0 ? "" : "flex-row-reverse"}`} id={`${index === 0 ? "sectionContent" : ""}`}>
+                <div className="flex-1 flex flex-col ">
+                  <div className={`w-full flex flex-col ${index % 2 === 0 ? "" : "items-end"}`}>
+                    <h2 className="w-2/3 text-blue-150 text-[32px] tracking-[10%] font-semibold">{item.title}</h2>
+                    <div className={`w-full flex relative ${index % 2 === 0 ? "" : " justify-end"}`}>
+                      <div className="w-2/3"><img src={`${item.src} `} alt="a1_photo" /></div>
+                      {index % 2 === 0 ?
+                        (<div className="w-1/3  bg-red-250 h-[5px] top-1/2 left-2/3 absolute "> <div className="bg-red-250 w-[20px]  h-[20px] rounded-1/2 rounded-[50%] absolute right-0 translate-x-1/2 -translate-y-1/4"></div></div>
+                        ) :
+                        (<div className="w-1/3  bg-red-250 h-[5px] top-1/2 left-0 absolute "> <div className="bg-red-250 w-[20px]  h-[20px] rounded-1/2 rounded-[50%] absolute left-0 -translate-x-1/2 -translate-y-1/4"></div></div>
+
+                        )
+                      }
+                    </div>
+
+                    <div className="w-2/3">
+                      <div className="d">{item.date}</div>
+                      <div className="d"> {item.desc}</div>
+                    </div>
+                  </div>
+
+                </div>
+                <div className="flex-1 ">
+                </div>
+              </section>
+            )))}
+
+
+            <section className="activity flex " id="sectionContent">
+              <div className="flex-1 flex flex-col ">
+                <div className="w-full">
+                  <h2 className="w-2/3 text-blue-150 text-[32px] tracking-[10%] font-semibold">參與台北寵物論壇，爭取貓咪友善環境</h2>
+                  <div className="w-full flex relative">
+                    <div className="w-2/3"><img src={a1_photo} alt="a1_photo" /></div>
+                    <div className="w-1/3  bg-red-250 h-[5px] top-1/2 left-2/3 absolute "> <div className="bg-red-250 w-[20px]  h-[20px] rounded-1/2 rounded-[50%] absolute right-0 translate-x-1/2 -translate-y-1/4"></div></div>
+                  </div>
+                  <div className="d">12/25</div>
+                  <div className="w-2/3">炎炎夏日的周六，我走進了台北寵物論壇，帶著一副貓耳髮箍，決定要全力宣傳「貓咪至上」的理念！我相信，我們的都市中，每一隻貓咪都應該有自己的 VIP 休憩空間。</div>
+                </div>
+
+              </div>
+              <div className="flex-1 ">
+              </div>
+            </section>
+            <section className="activity flex   flex-row-reverse">
+              <div className="flex-1 flex flex-row">
+                <div className="w-full flex relative  justify-end">
+                  <div className="w-2/3 "><img src={a1_photo} alt="a1_photo" /></div>
+                  <div className="w-1/3  bg-red-250 h-[5px] top-1/2 left-0 absolute "> <div className="bg-red-250 w-[20px]  h-[20px] rounded-1/2 rounded-[50%] absolute left-0 -translate-x-1/2 -translate-y-1/4"></div></div>
+                </div>
+              </div>
+              <div className="flex-1   ">
+              </div>
+            </section>
+            <section className="activity flex  gap-5 flex-row-reverse">
+              <div className="flex-1 flex flex-col items-end">
+                <div className="w-2/3">
+                  <h2 className="text-blue-150 text-[32px] tracking-[10%] font-semibold">參與台北寵物論壇，爭取貓咪友善環境</h2>
+                  <div className=""><img src={a1_photo} alt="a1_photo" /></div>
+                </div>
+
+              </div>
+              <div className="flex-1   ">
+              </div>
+            </section>
+            <div className="line absolute bg-red-250 w-[2px] left-1/2 -translate-x-1/2 top-[50px] -bottom-[300px]"></div>
+
           </div>
 
-          <div className="flex justify-around my-[32px]">
-            <div className="flex-1 text-[20px] text-black-default leading-[225%] tracking-[6px]">
-              <h1 className="text-[48px] font-semibold text-blue-250">薩卡的起源</h1>
-              <div className="my-[32px]">薩卡出生於澳洲附近的海域，隨著洋流去過很多地方，某天在躲避掠食者的攻擊時，努力的一躍跳上了岸，發現自己竟然可以在空氣中自由呼吸，於是薩卡開始了地面上的旅行。
-                風和日麗的某個夏天，薩卡走進了貓咪咖啡廳，馬上就被許多<span className="text-cyan-150">＼＼＼</span><span className="text-yellow-250">世界上最可愛的生物們</span><span className="text-cyan-150">／／／</span>包圍了，基於散播歡樂散播愛的理念，薩卡決定要將<span className="text-cyan-150">＼＼＼</span><span className="text-yellow-250">貓貓的可愛</span><span className="text-cyan-150">／／／</span>發揚光大。
-                「就從改善這個太平洋小島的貓貓權益開始吧！」於是薩卡戴上了貓耳，決心參選下一屆立委！</div>
-            </div>
-            <div className="flex-1"><img src={sakka_detail} alt="sakka_detail" /></div>
-          </div>
         </Modal>
       )}
 
