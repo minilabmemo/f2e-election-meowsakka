@@ -83,11 +83,7 @@ export default function Content() {
   const [aboutModal, setAboutModal] = useState(false)
   const [newsModal, setNewsModal] = useState(false)
 
-  // useEffect(() => {
-  //   news.forEach((item) => {
-  //     new Image().src = `${item.src}`
-  //   });
-  // }, [])
+
 
   return (
     <div className="overflow-hidden" style={{ backgroundImage: `url(${BG})` }}>
@@ -118,9 +114,9 @@ export default function Content() {
           <div className="text-2xl font-medium text-black-default leading-[50px]">為毛孩子謀福利！推動寵物醫療保障方案。</div>
           <div className="text-2xl font-medium text-black-default leading-[50px]">打造休閒天堂！推廣寵物休閒與娛樂場所。</div>
           <div className="text-2xl font-medium text-black-default leading-[50px]">推廣寵物飼養教育，讓愛更加專業。</div>
-          <button className="bg-blue-150 rounded-[30px] py-[5px] px-[21px] mt-[37px]">
+          {/*TODO <button className="bg-blue-150 rounded-[30px] py-[5px] px-[21px] mt-[37px]">
             <span className="text-2xl leading-[40px] font-semibold text-white" >   詳細政策</span>
-          </button>
+          </button> */}
         </div>
 
       </section>
@@ -142,7 +138,10 @@ export default function Content() {
             {news.map((value, index) => (
               <div style={{ width: 280 }} key={index} className="drop-shadow-[6px_6px_2px_rgba(61,61,61,0.7)] my-10  hover:scale-[1.1] " onMouseMove={() => handleClick(value, index)}>
                 <div style={{ backgroundImage: `url(${value.src})` }}
-                  className={`grow-0 shrink-0 w-[420px] h-[400px] bg-cover bg-center ${index % 2 === 0 ? "clipped" : "clipped-reverse"} `}> </div>
+                  className={`grow-0 shrink-0 w-[420px] h-[400px] bg-cover bg-center ${index % 2 === 0 ? "clipped" : "clipped-reverse"} `}>
+
+                </div>
+
               </div>
             ))}
 
@@ -151,12 +150,12 @@ export default function Content() {
 
 
         </div>
-        <div className="title font-semibold text-blue-150 relative -translate-x-4">
+        <div className="title font-semibold text-blue-150 relative -translate-x-4" onClick={() => { setNewsModal(!newsModal) }}>
 
-          <div className=" text-[32px] absolute p-10 z-[1] flex flex-col justify-center items-start  w-[800px] h-[200px]">
+          <div className=" text-[32px] absolute p-10 z-10 flex flex-col justify-center items-start  w-[800px] h-[200px]">
             {title}
             <button className="bg-blue-150 rounded-[30px] py-[5px] px-[21px] mt-[37px] self-end">
-              <span className="text-2xl leading-[40px] font-semibold text-white " onClick={() => { setNewsModal(!newsModal) }}> 暸解更多</span>
+              <span className="text-2xl leading-[40px] font-semibold text-white "> 暸解更多</span>
             </button>
           </div>
 

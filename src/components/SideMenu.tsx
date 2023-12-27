@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import NavLink from './NavLink'
 import Facebook from "../assets/images/Facebook.svg";
 import Instagram from "../assets/images/Instagram.svg";
@@ -6,9 +6,14 @@ import TwitterX from "../assets/images/TwitterX.svg";
 import YouTube from "../assets/images/YouTube.svg";
 import LINE from "../assets/images/LINE.svg";
 import { useMediaQuery } from 'usehooks-ts'
+import useHash from '../hooks/useHash';
 
 export default function SideMenu() {
+  const [hash] = useHash();
   const [isMeanOpen, setIsMeanOpen] = useState(false)
+  useEffect(() => {
+    setIsMeanOpen(false);
+  }, [hash]);
 
   const matches = useMediaQuery('(max-width: 768px)')
 
