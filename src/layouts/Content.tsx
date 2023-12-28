@@ -22,6 +22,21 @@ function Title({ text }: { text: string }) {
     </div>
   )
 }
+//lazy load with placeholder image
+function ImageLoad({ src, index }: { src: string, index: number }) {
+  const [sourceLoaded, setSourceLoaded] = useState("")
+  const placeholder = BG;
+  useEffect(() => {
+    const img = new Image()
+    img.src = src
+    img.onload = () => setSourceLoaded(src)
+  }, [src])
+  return (
+    <div style={{ backgroundImage: `url(${sourceLoaded || placeholder})` }}
+      className={`grow-0 shrink-0 w-[420px] h-[400px] bg-cover bg-center ${index % 2 === 0 ? "clipped" : "clipped-reverse"} `}>
+    </div>
+  )
+}
 
 export default function Content() {
   const [refService, inViewService] = useInView({ triggerOnce: false, });
@@ -137,10 +152,10 @@ export default function Content() {
           <Slider {...settings} className="carousel flex justify-start items-start  h-[500px]	">
             {news.map((value, index) => (
               <div style={{ width: 280 }} key={index} className="drop-shadow-[6px_6px_2px_rgba(61,61,61,0.7)] my-10  hover:scale-[1.1] " onMouseMove={() => handleClick(value, index)}>
-                <div style={{ backgroundImage: `url(${value.src})` }}
+                {/* <div style={{ backgroundImage: `url(${value.src})` }}
                   className={`grow-0 shrink-0 w-[420px] h-[400px] bg-cover bg-center ${index % 2 === 0 ? "clipped" : "clipped-reverse"} `}>
-
-                </div>
+                </div> */}
+                <ImageLoad src={`${value.src}`} index={index} />
 
               </div>
             ))}
