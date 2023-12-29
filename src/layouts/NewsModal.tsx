@@ -1,8 +1,11 @@
 import React, { Dispatch, SetStateAction, useEffect, useRef } from 'react'
 import Modal from '../components/Modal'
 import { news } from '../utils/news'
+import { useMediaQuery } from 'usehooks-ts';
 
 export default function NewsModal({ setNewsModal }: { setNewsModal: Dispatch<SetStateAction<boolean>>; }) {
+  const matches = useMediaQuery('(max-width: 768px)')
+
   const lineRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     const modalElem = document.getElementById('newsModal');
@@ -16,7 +19,7 @@ export default function NewsModal({ setNewsModal }: { setNewsModal: Dispatch<Set
 
 
     const handleScroll = () => {
-      if (modalElem && sectionElement && lineRef.current) {
+      if (modalElem && sectionElement) {
         const scrollTop = modalElem.scrollTop;
         const h = sectionElement.clientHeight
         const num = Math.ceil((scrollTop / h) + 1); //在上一個高度一半時顯示下一個，並無條件進位
@@ -38,7 +41,10 @@ export default function NewsModal({ setNewsModal }: { setNewsModal: Dispatch<Set
             hiddenChild?.classList.replace('left-move-in-animate', "left-move-out-animate");
           }
         }
-        lineRef.current.style.bottom = "-" + scrollTop + "px"
+        if (lineRef.current) {
+          lineRef.current.style.bottom = "-" + scrollTop + "px"
+        }
+
       }
     };
 
@@ -62,39 +68,46 @@ export default function NewsModal({ setNewsModal }: { setNewsModal: Dispatch<Set
             id={`${index === 0 ? "firstSection" : ""}`}>
             <div className="flex-1 flex flex-col ">
               <div className={`w-full flex flex-col ${index % 2 === 0 ? "" : "items-end"}`}>
-                <h2 className="w-2/3 text-blue-150 text-[32px] tracking-[10%] font-semibold">{item.title}</h2>
+                <h2 className={`${matches ? "text-[24px]" : "w-2/3 text-[32px]"} text-blue-150  tracking-[10%] font-semibold`}>{item.title}</h2>
                 <div className={`w-full flex relative ${index % 2 === 0 ? "" : " justify-end"}`}>
-                  <div className="w-2/3"><img src={`${item.src} `} alt="a1_photo" /></div>
-                  {index % 2 === 0 ?
-                    (<div className="w-1/3  bg-red-150 h-[3px] top-1/2 left-2/3 absolute ">
-                      <div className="bg-red-250 w-[20px]  h-[20px]  rounded-[50%] absolute  right-0 translate-x-1/2 -translate-y-1/2"></div></div>
-                    ) :
-                    (<div className="w-1/3  bg-red-150 h-[3px] top-1/2 left-0 absolute ">
-                      <div className="bg-red-250 w-[20px]  h-[20px]  rounded-[50%] absolute left-0 -translate-x-1/2 -translate-y-1/2"></div></div>
+                  <div className={` ${matches ? "" : "w-2/3"}`}><img src={`${item.src} `} alt="a1_photo" /></div>
 
-                    )
-                  }
+
+                  {matches ? (<></>) :
+                    (<div className=" "> {index % 2 === 0 ?
+                      (<div className="w-1/3  bg-red-150 h-[3px] top-1/2 left-2/3 absolute ">
+                        <div className="bg-red-250 w-[20px]  h-[20px]  rounded-[50%] absolute  right-0 translate-x-1/2 -translate-y-1/2"></div></div>
+                      ) :
+                      (<div className="w-1/3  bg-red-150 h-[3px] top-1/2 left-0 absolute ">
+                        <div className="bg-red-250 w-[20px]  h-[20px]  rounded-[50%] absolute left-0 -translate-x-1/2 -translate-y-1/2"></div></div>
+
+                      )
+                    }</div>)}
+
                 </div>
 
-                <div className="w-2/3">
+                <div className={`${matches ? "" : "w-2/3"}`}>
                   <div className="text-red-250 leading-[225%] font-medium">{item.date}</div>
                   <div className="d"> {item.desc}</div>
                 </div>
               </div>
 
             </div>
-            <div className="flex-1 ">
-            </div>
+
+            {matches ? (<></>) :
+              (<div className="flex-1 "> </div>)}
+
           </section>
         )))}
 
 
+        {matches ? (<></>) :
+          (<div className=" absolute bg-red-150 w-[3px] left-1/2 -translate-x-1/2 top-[50px] -bottom-[300px] z-0"
+            ref={lineRef}>
+            <div className="bg-red-250 w-[20px]  h-[20px]  rounded-[50%] absolute right-0 top-0 translate-x-1/2 "></div>
+            <div className="bg-red-250 w-[20px]  h-[20px]  rounded-[50%] absolute right-0 bottom-0 translate-x-1/2 "></div>
+          </div>)}
 
-        <div className=" absolute bg-red-150 w-[3px] left-1/2 -translate-x-1/2 top-[50px] -bottom-[300px] z-0"
-          ref={lineRef}>
-          <div className="bg-red-250 w-[20px]  h-[20px]  rounded-[50%] absolute right-0 top-0 translate-x-1/2 "></div>
-          <div className="bg-red-250 w-[20px]  h-[20px]  rounded-[50%] absolute right-0 bottom-0 translate-x-1/2 "></div>
-        </div>
 
       </div>
 

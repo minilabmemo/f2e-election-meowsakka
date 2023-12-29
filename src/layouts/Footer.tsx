@@ -2,8 +2,8 @@ import React from 'react'
 import logo from "../assets/images/logo.svg";
 export default function Footer() {
   return (
-    <div className=' pt-[156px] px-[160px] bg-orange-150'>
-      <div className="flex justify-around items-center pb-[77px] flex-wrap gap-4">
+    <div className=' flex items-center justify-center flex-col  bg-orange-150 '>
+      <div className="flex justify-around items-center  flex-wrap gap-5 p-7 w-[90%]">
         <div className="w-[313px] "><img src={logo} alt="logo" /></div>
         <div className="text-black-150 text-2xl flex my-2">
           <div>
@@ -25,7 +25,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="h-[5px] bg-red-250"></div>
-      <div className="text-black-150 text-2xl flex justify-center py-[56px]">© 2023 喵薩卡 版權所有。</div>
+      <div className="text-black-150 text-2xl flex justify-center pb-8">© 2023 喵薩卡 版權所有。</div>
     </div>
   )
 }

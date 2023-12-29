@@ -14,6 +14,8 @@ import Slider from "react-slick";
 import Modal from '../components/Modal';
 
 import NewsModal from './NewsModal';
+
+
 function Title({ text }: { text: string }) {
   return (
     <div className=" flex flex-col items-center w-[300px]">
@@ -116,11 +118,11 @@ export default function Content() {
         </div>
 
       </section>
-      <section id="policies" className="h-[1080px] relative px-[63px] py-[177px]">
+      <section id="policies" className=" relative flex flex-col items-center justify-center py-[50px] md:block md:px-[63px] md:py-[177px]">
 
         <Title text="政策議題"></Title>
 
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center p-10">
 
           <h2 className="text-[32px] font-semibold text-red-250 m-[22px]"> 我們的訴求</h2>
 
@@ -136,7 +138,7 @@ export default function Content() {
 
       </section>
 
-      <section id="news" className="h-[1080px] relative  flex flex-col  w-full justify-center "  >
+      <section id="news" className=" relative  flex flex-col  w-full justify-center "  >
         <div className="self-end ">  <Title text="最新活動"></Title></div>
         <div className="carousel-bg rotate-[15deg]     overflow-hidden   self-center w-[120vw]">
 
@@ -152,9 +154,6 @@ export default function Content() {
           <Slider {...settings} className="carousel flex justify-start items-start  h-[500px]	">
             {news.map((value, index) => (
               <div style={{ width: 280 }} key={index} className="drop-shadow-[6px_6px_2px_rgba(61,61,61,0.7)] my-10  hover:scale-[1.1] " onMouseMove={() => handleClick(value, index)}>
-                {/* <div style={{ backgroundImage: `url(${value.src})` }}
-                  className={`grow-0 shrink-0 w-[420px] h-[400px] bg-cover bg-center ${index % 2 === 0 ? "clipped" : "clipped-reverse"} `}>
-                </div> */}
                 <ImageLoad src={`${value.src}`} index={index} />
 
               </div>
@@ -165,16 +164,16 @@ export default function Content() {
 
 
         </div>
-        <div className="title font-semibold text-blue-150 relative -translate-x-4" onClick={() => { setNewsModal(!newsModal) }}>
+        <div className=" font-semibold text-blue-150 relative -translate-x-4 h-[300px] " onClick={() => { setNewsModal(!newsModal) }}>
 
-          <div className=" text-[32px] absolute p-10 z-10 flex flex-col justify-center items-start  w-[800px] h-[200px]">
+          <div className="text-[24px] md:text-[32px] absolute top-0 px-[30px] z-10 flex flex-col justify-center items-start  w-[1091px] h-[230px] gap1 md:gap-3">
             {title}
-            <button className="bg-blue-150 rounded-[30px] py-[5px] px-[21px] mt-[37px] self-end">
-              <span className="text-2xl leading-[40px] font-semibold text-white "> 暸解更多</span>
+            <button className="bg-blue-150 rounded-[30px] py-[1px] px-[21px] self-start md:self-center md:ml-[50px]">
+              <span className="text-xl md:text-2xl leading-[40px] font-semibold text-white "> 暸解更多</span>
             </button>
           </div>
 
-          <div className="w-[1000px] absolute top-0 left-0">  <img src={title_bg} alt="title_bg" /></div>
+          <div className=" h-[230px]  absolute top-0 left-0">  <img src={title_bg} alt="title_bg" className='w-full h-full ' /></div>
 
         </div>
 
@@ -200,7 +199,7 @@ export default function Content() {
         <Modal SetModal={setAboutModal}>
           <div className=" scroll-bar-no-show overflow-y-auto h-full">
             <div className="flex flex-col items-center">
-              <h1 className="text-[48px] font-semibold text-blue-250">薩卡的主張</h1>
+              <h1 className="text-[32px] md:text-[48px] font-semibold text-blue-250">薩卡的主張</h1>
               <div className="w-[90%] text-[20px] text-black-default leading-[225%] tracking-[6px] my-[32px]">
 
                 我堅信，藉由推動更完善的<span className="text-red-250">貓咪</span>福利和相關政策，更是間接地投資於台灣的未來。畢竟，民眾的身心健康與工作熱情是推動經濟的核心動力。透過完善的<span className="text-red-250">貓咪</span>福利政策，為台灣的 GDP 經濟帶來巨大效益。
@@ -208,10 +207,10 @@ export default function Content() {
               </div>
             </div>
 
-            <div className="flex justify-around flex-wrap">
+            <div className="flex justify-around flex-col md:flex-row">
               <div className="h"><img src={about_sakka} alt="about_sakka" /></div>
               <div className="h">
-                <h1 className="text-[48px] font-semibold text-blue-250">關於薩卡</h1>
+                <h1 className="text-[32px] md:text-[48px] font-semibold text-blue-250">關於薩卡</h1>
                 <div className="my-[46px] text-[24px] leading-[208%] tracking-[3.6px]">
                   <h3 className="text-red-250">經歷</h3>
                   <div className="h">曾擔任「喵星宇宙」顧問</div>
@@ -234,9 +233,9 @@ export default function Content() {
               </div>
             </div>
 
-            <div className="flex justify-around flex-wrap my-[32px]">
+            <div className="flex justify-around flex-col md:flex-row my-[32px]">
               <div className="flex-1 text-[20px] text-black-default leading-[225%] tracking-[6px]">
-                <h1 className="text-[48px] font-semibold text-blue-250">薩卡的起源</h1>
+                <h1 className="text-[32px] md:text-[48px] font-semibold text-blue-250">薩卡的起源</h1>
                 <div className="my-[32px]">薩卡出生於澳洲附近的海域，隨著洋流去過很多地方，某天在躲避掠食者的攻擊時，努力的一躍跳上了岸，發現自己竟然可以在空氣中自由呼吸，於是薩卡開始了地面上的旅行。
                   風和日麗的某個夏天，薩卡走進了貓咪咖啡廳，馬上就被許多<span className="text-cyan-150">＼＼＼</span><span className="text-yellow-250">世界上最可愛的生物們</span><span className="text-cyan-150">／／／</span>包圍了，基於散播歡樂散播愛的理念，薩卡決定要將<span className="text-cyan-150">＼＼＼</span><span className="text-yellow-250">貓貓的可愛</span><span className="text-cyan-150">／／／</span>發揚光大。
                   「就從改善這個太平洋小島的貓貓權益開始吧！」於是薩卡戴上了貓耳，決心參選下一屆立委！</div>
