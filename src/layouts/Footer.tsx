@@ -3,8 +3,8 @@ import logo from "../assets/images/logo.svg";
 export default function Footer() {
   return (
     <div className=' pt-[156px] px-[160px] bg-orange-150'>
-      <div className="flex justify-around pb-[77px] flex-wrap">
-        <div className="w-[313px] h-[156px]"><img src={logo} alt="logo" /></div>
+      <div className="flex justify-around items-center pb-[77px] flex-wrap gap-4">
+        <div className="w-[313px] "><img src={logo} alt="logo" /></div>
         <div className="text-black-150 text-2xl flex my-2">
           <div>
             <div className="m-3  ">104 專區</div>

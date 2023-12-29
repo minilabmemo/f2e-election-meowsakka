@@ -6,9 +6,11 @@
 
 - [x] 內建 ts/tailwind/reset 架構，無 webpack 客製化調整
 - [x] 整理資料夾架構
-- [x] deploy 設定
+- [x] deploy 設定 - github page
 
-## 功能與動畫
+## 功能
+
+描述功能與動畫等完成度與耗費時間。
 
 - [x] 主頁
 - [x] 標頭導覽浮動與縮短高度動畫
